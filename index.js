@@ -1,14 +1,14 @@
-var path = require('path');
-var dust = require('dustjs-linkedin');
+'use strict';
+
+var path = require('path'),
+	dust = require('dustjs-linkedin');
 
 module.exports = function(content) {
-  if (this.cacheable) {
-    this.cacheable();
-  }
-
-
-  var name = this.resourcePath.replace(this.options.context + path.sep, '').replace('.dust', '').split(path.sep).join('/'),
-    compiled = dust.compile(content, name);
-
-  return "module.exports = " + compiled;
+	if (this.cacheable) {
+		this.cacheable();
+	}
+	
+	var name = path.basename(this.resourcePath).replace(/\.dust|\.html/, '');
+	
+	return dust.compile(content, name);
 };
