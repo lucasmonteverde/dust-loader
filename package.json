@@ -6,7 +6,7 @@
     "name": "Lucas Monteverde"
   },
   "main": "index.js",
-  "devDependencies": {
+  "dependencies": {
     "dustjs-linkedin": "<2.4.5"
   },
   "licenses": [
